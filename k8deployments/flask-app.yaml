@@ -10,9 +10,8 @@ spec:
   - protocol: TCP
     port: 5500
     targetPort: 5500
- 
- ---
- 
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
