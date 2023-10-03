@@ -3,13 +3,13 @@ kind: Service
 metadata:
  name:
 spec:
- selector:
-  app:
  type: LoadBalancer
+ selector:
+  app: nginx
  ports:
   port: 80
   targetPort: 80
-  - protocol: TCP
+ - protocol: TCP
 
 ---
 
