@@ -8,8 +8,7 @@ spec:
  ports:
   port: 5500
   targetPort: 5500
-  - protocal: TCP
- type: ClusterIP
+  - protocol: TCP
 
  ---
 
@@ -37,4 +36,4 @@ spec:
       - name: flask-app
         image: nareshm5859/duo-falsk-app:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5500
