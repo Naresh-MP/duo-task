@@ -7,7 +7,7 @@ metadata:
 spec:
  containers:
   - name: nginx
-    image: nareshm5859/duo-nm-nginx:latest
+    image: nareshm5859/duo-nm-nginx:v4
     imagePullPolicy: Always  
     ports:
     - containerPort: 5500
