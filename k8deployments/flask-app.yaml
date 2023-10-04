@@ -38,5 +38,5 @@ spec:
         ports:
         - containerPort: 5500
         env:
-        - name: YPUR_NAME
+        - name: YOUR_NAME
           value: Naresh

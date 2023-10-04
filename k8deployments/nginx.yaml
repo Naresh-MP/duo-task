@@ -35,6 +35,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nareshm5859/duo-nginx:latest
+        image: nareshm5859/duo-nm-nginx:v4
         ports:
         - containerPort: 80
