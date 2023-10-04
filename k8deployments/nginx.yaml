@@ -35,6 +35,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nareshm5859/duo-nm-nginx:v4
+        image: nareshm5859/duo-nm-nginx:v5
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
