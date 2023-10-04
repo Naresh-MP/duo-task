@@ -10,7 +10,22 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |   # name of the file that will be mounted
+    events {}
+    http {
+        server {
+            listen 80;
+            location / {
+                proxy_pass http://flask-app:5500;
+            }
+        }
+    }
 ---
 
 apiVersion: apps/v1
@@ -20,7 +35,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -33,9 +48,17 @@ spec:
       labels:
         app: nginx
     spec:
+      volumes:
+      - name: nginx-config-vol
+        configMap: 
+          name: nginx-config
       containers:
-      - name: nginx
-        image: nareshm5859/duo-nm-nginx:v5
+      - name: nginx-container
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: nginx-config-vol
+          mountPath: /etc/nginx
+
