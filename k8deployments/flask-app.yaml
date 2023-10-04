@@ -37,3 +37,6 @@ spec:
         image: nareshm5859/duo-flask-app:latest
         ports:
         - containerPort: 5500
+        env:
+        - name: YPUR_NAME
+          value: Naresh
